@@ -1,0 +1,249 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --strongCyan: hsl(172, 67%, 45%);
+  --veryDarkCyan: hsl(183, 100%, 15%);
+  --darkGrayishCyan: hsl(186, 14%, 43%);
+  --grayishCyan: hsl(184, 14%, 56%);
+  --lightGrayishCyan: hsl(185, 41%, 84%);
+  --veryLightGrayishCyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-size: 1.5rem;
+  background-color: var(--lightGrayishCyan);
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+.wrapper {
+  padding-top: 5rem;
+  display: grid;
+  place-items: center;
+  gap: 4rem;
+  margin-inline: auto;
+  max-width: 900px;
+}
+
+.container {
+  padding: clamp(2rem, 4vw, 3.5rem);
+  background-color: var(--white);
+  border-radius: 2rem;
+  box-shadow: 0 4rem 5rem var(--darkGrayishCyan);
+  display: grid;
+  grid-auto-flow: row;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-auto-flow: column;
+  }
+}
+
+.form {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.label-group {
+  display: grid;
+  text-align: left;
+  gap: 0.2rem;
+}
+
+.label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number-wrapper {
+  position: relative;
+}
+
+.error {
+  font-size: 1rem;
+  color: hsl(12, 67%, 55%);
+}
+
+.label {
+  color: var(--veryDarkCyan);
+  font-size: 1rem;
+}
+
+.number-input {
+  width: 100%;
+  font: inherit;
+  text-align: right;
+  background-color: var(--veryLightGrayishCyan);
+  border: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Hide Arrows From Inputs */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.number-input:focus {
+  outline: 2px solid var(--strongCyan);
+}
+/* ---------------------------------- */
+
+.icon {
+  position: absolute;
+  top: 30%;
+  left: 1rem;
+  transform: translate(-50%);
+  pointer-events: none;
+}
+
+.tip-section {
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+}
+
+.tip-amount-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .tip-amount-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tip-amount {
+  position: relative;
+  display: grid;
+}
+
+[name="tip"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+[name="tip"]:hover + .tip-btn {
+  background-color: var(--strongCyan);
+  color: var(--veryDarkCyan);
+}
+
+[name="tip"]:checked + .tip-btn {
+  background-color: var(--strongCyan);
+}
+
+.tip-btn {
+  background-color: var(--veryDarkCyan);
+  color: var(--white);
+  border-radius: 0.4rem;
+  padding: 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tip-custom {
+  text-align: center;
+}
+
+.custom-wrapper {
+  position: relative;
+}
+
+.tip-custom-label {
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.display {
+  background-color: var(--veryDarkCyan);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.totals {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.display-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  text-align: left;
+}
+
+.display-label {
+  display: grid;
+  justify-items: start;
+}
+
+.header {
+  color: var(--veryLightGrayishCyan);
+  font-size: 1rem;
+}
+
+.unit {
+  color: var(--grayishCyan);
+  font-size: 0.8rem;
+}
+
+.value {
+  font-size: 2rem;
+  color: var(--strongCyan);
+}
+
+.btn {
+  font: inherit;
+  background-color: var(--strongCyan);
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.8rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn[disabled] {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.btn:not([disabled]):focus,
+.btn:not([disabled]):hover {
+  outline: none;
+  background-color: var(--lightGrayishCyan);
+}
