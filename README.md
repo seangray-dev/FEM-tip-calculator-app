@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL]([https://your-solution-url.com](https://www.frontendmentor.io/solutions/tip-calculator-app-arHiEhbjwI))
+- [Solution URL](https://your-solution-url.com](https://www.frontendmentor.io/solutions/tip-calculator-app-arHiEhbjwI)
 - [Live Site URL](https://seangray-dev.github.io/FEM-tip-calculator-app/)
 
 ### Built with
